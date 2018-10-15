@@ -73,8 +73,10 @@ namespace Data_Structures.Controllers
                return View("Stopwatch");
             }
          }
-
-         return View("Stopwatch");
+            sw.Stop();
+            TimeSpan ts = sw.Elapsed;
+            ViewBag.StopWatch = ts;
+            return View("Stopwatch");
       }
       public ActionResult Menu()
       {
