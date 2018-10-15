@@ -68,8 +68,8 @@ namespace Data_Structures.Controllers
             if (SearchTerm == myStack.ElementAt(counter))
             {
                sw.Stop();
-               TimeSpan ts = sw.Elapsed;
-               ViewBag.StopWatch = ts;
+               TimeSpan fs = sw.Elapsed;
+               ViewBag.StopWatch = fs;
                ViewBag.Status = Found;
                return View("Stopwatch");
             }
