@@ -2,6 +2,36 @@
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Queue Index</h2>
-
+<body>
+    <div>
+        <ul>
+            <li>
+                <a href="@Url.Action("AddOne", "Queue")" class="w3-bar-item w3-button">Add One Item to Queue</a>
+            </li>
+            <li>
+                <a href="@Url.Action("AddHugeList", "Queue")" class="w3-bar-item w3-button">Add Huge List of Items To</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Display", "Queue")" class="w3-bar-item w3-button">Display</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Delete", "Queue")" class="w3-bar-item w3-button">Delete</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Clear", "Queue")" class="w3-bar-item w3-button">Clear</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Search", "Queue")" class="w3-bar-item w3-button">Search</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Menu", "Queue")" class="w3-bar-item w3-button">Return</a>
+            </li>
+        </ul>
+    </div>
+    @if (ViewBag.StopWatch != null)
+    {
+        <p>The entry was @ViewBag.Status.</p>
+        <p>Total time for search: @ViewBag.StopWatch seconds.</p>
+    }
+</body>

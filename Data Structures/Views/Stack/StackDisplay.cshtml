@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "StackDisplay";
 }
 
 <h2>Stack Index</h2>
@@ -31,10 +31,17 @@
             </li>
         </ul>
     </div>
-    @if (ViewBag.StopWatch != null)
-    {
-        <p>The entry was @ViewBag.Status.</p>
-        <p>Total time for search: @ViewBag.Stopwatch seconds</p>
-    }
+@if (ViewBag.MyStack != null)
+{
+       foreach (var sData in ViewBag.MyStack)
+       {
+        <p>@sData</p>
+       }
+}
+else
+{
+    <p>There is nothing in the stack.</p>
+}
 
 </body>
+

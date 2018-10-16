@@ -99,7 +99,9 @@
     <Content Include="Content\MyStyleSheet.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
-    <Content Include="Graphics\test.jpg" />
+    <Content Include="Graphics\Blue Deathstar Plans.png" />
+    <Content Include="Graphics\Death Star Plans.jpg" />
+    <Content Include="Graphics\deathstar structure.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -170,6 +172,9 @@
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Views\Stack\StackDisplay.cshtml" />
+    <Content Include="Views\Stack\Stopwatch.cshtml" />
+    <Content Include="Views\Queue\displayIndexQueue.cshtml" />
     <Content Include="Views\Dictionary\Display.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

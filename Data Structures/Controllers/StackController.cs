@@ -6,97 +6,102 @@ using System.Web.Mvc;
 
 namespace Data_Structures.Controllers
 {
-   public class StackController : Controller
-   {
-      static Stack<string> myStack = new Stack<string>();
-      // GET: Stack
-      public ActionResult Index()
-      {
-         ViewBag.MyStack = myStack;
+    public class StackController : Controller
+    {
+        static Stack<string> myStack = new Stack<string>();
+        // GET: Stack
+        public ActionResult Index()
+        {
+            ViewBag.MyStack = myStack;
+            return View();
 
-         return View();
-      }
-
-      public ActionResult AddOne()
-      {
-         myStack.Push("New Entry " + (myStack.Count + 1));
-         ViewBag.MyStack = myStack;
-
-         return View("Index");
-      }
-
-      public ActionResult AddList()
-      {
-         for (int StackCounter = 0; StackCounter < 2000; StackCounter++)
-         {
+        }
+        public ActionResult AddOne()
+        {
             myStack.Push("New Entry " + (myStack.Count + 1));
+
             ViewBag.MyStack = myStack;
-         }
 
-         return View("Index");
-
-      }
-
-      public ActionResult Display()
-      {
-         foreach (var x in myStack)
-         {
-            ViewBag.MyStack = myStack;
-         }
-
-         return View("StackDisplay");
-      }
-
-      public ActionResult Delete()
-      {
-         if (myStack.Count > 0)
-         {
-            myStack.Pop();
-         }
-
-         return View("Index");
-      }
-
-      public ActionResult Clear()
-      {
-         while (myStack.Count > 0)
-         {
+            return View("Index");
+        }
+        public ActionResult AddList()
+        {
             myStack.Clear();
-         }
-
-         return View("Index");
-      }
-
-      public ActionResult Search()
-      {
-         string SearchTerm = "New Entry 1450";
-         System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-         sw.Start();
-         string Found = "found";
-         string NotFound = "not found";
-         ViewBag.Status = NotFound;
-         for (int counter = 0; counter < myStack.Count(); counter++)
-         {
-            if (SearchTerm == myStack.ElementAt(counter))
+            for (int StackCounter = 0; StackCounter < 2000; StackCounter++)
             {
-               sw.Stop();
-               TimeSpan fs = sw.Elapsed;
-               ViewBag.StopWatch = fs;
-               ViewBag.Status = Found;
+                
+                myStack.Push("New Entry " + (myStack.Count + 1));
 
-               return View("Stopwatch");
+                ViewBag.MyStack = myStack;
             }
-         }
-            sw.Stop();
-            TimeSpan ts = sw.Elapsed;
-            ViewBag.StopWatch = ts;
 
-            return View("Stopwatch");
-      }
+            return View("Index");
+            
+        }
+        public ActionResult Display()
+        {
+            foreach (var x in myStack)
+            {
+                ViewBag.MyStack = myStack;
+            }
+                return View("StackDisplay");
+        }
+        public ActionResult Delete()
+        {
+            if (myStack.Count > 0)
+            {
+                myStack.Pop();
+                return View("Index");
+            }
+            else
+            {
+                return View("StackDisplay");
+            }
+            
+        }
+        public ActionResult Clear()
+        {
+            while (myStack.Count > 0)
+            {
+                myStack.Clear();
+            }
+            return View("StackDisplay");
+        }
+        public ActionResult Search()
+        {
+            if (myStack.Count > 0)
+            {
+                string SearchTerm = "New Entry 1450";
+                System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+                sw.Start();
+                string Found = "found";
+                string NotFound = "not found";
+                ViewBag.Status = NotFound;
+                for (int counter = 0; counter < myStack.Count(); counter++)
+                {
+                    if (SearchTerm == myStack.ElementAt(counter))
+                    {
+                        sw.Stop();
+                        TimeSpan fs = sw.Elapsed;
+                        ViewBag.StopWatch = fs;
+                        ViewBag.Status = Found;
+                        return View("Index");
+                    }
 
-      public ActionResult Menu()
-      {
-         return View("~/Views/Home/Index.cshtml");
-      }
-   }
+                }
+                sw.Stop();
+                TimeSpan ts = sw.Elapsed;
+                ViewBag.StopWatch = ts;
+                return View("Index");
+            }
+            else
+            {
+                return View("StackDisplay");
+            }
+        }
+        public ActionResult Menu()
+        {
+            return View("~/Views/Home/Index.cshtml");
+        }
+    }
 }
