@@ -1,7 +1,6 @@
 ﻿@{
    ViewBag.Title = "Index";
 }
-
 <h2>Dictionary Index</h2>
 
 <body>
@@ -30,11 +29,15 @@
          </li>
       </ul>
    </div>
-   @ViewBag.ErrorMessage
-
-   @if (ViewBag.Stopwatch != null)
+   @if (ViewBag.MyDictionary != null)
    {
-      <p>The entry was @ViewBag.Status</p>
-      <p>Total time for search: @ViewBag.Stopwatch seconds.</p>
+      foreach (KeyValuePair<int, string> entry in ViewBag.MyDictionary)
+      {
+         <p>@entry.Value</p>
+      }
+   }
+   else
+   {
+      <p>There is nothing in the dictionary.</p>
    }
 </body>
